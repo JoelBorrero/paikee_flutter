@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:paikee/utils/constants.dart';
 
-PageController _controller = PageController(initialPage: 0);
+PageController _controller = PageController();
 
 class Onboarding extends StatefulWidget {
-  const Onboarding({Key? key}) : super(key: key);
+  final PageController authenticationController;
+  const Onboarding({Key? key, required this.authenticationController})
+      : super(key: key);
 
   @override
   State<Onboarding> createState() => _OnboardingState();
@@ -21,7 +24,11 @@ class _OnboardingState extends State<Onboarding> {
                     page = newPage;
                   }),
               controller: _controller,
-              children: const [Page1(), Page2(), Page3()]),
+              children: [
+                const Page1(),
+                const Page2(),
+                Page3(controller: widget.authenticationController)
+              ]),
         ),
         Padding(
           padding: const EdgeInsets.only(bottom: 80),
@@ -79,9 +86,15 @@ class Page2 extends StatelessWidget {
   }
 }
 
-class Page3 extends StatelessWidget {
-  const Page3({Key? key}) : super(key: key);
+class Page3 extends StatefulWidget {
+  final PageController controller;
+  const Page3({Key? key, required this.controller}) : super(key: key);
 
+  @override
+  State<Page3> createState() => _Page3State();
+}
+
+class _Page3State extends State<Page3> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -102,10 +115,10 @@ class Page3 extends StatelessWidget {
             textAlign: TextAlign.center),
         const SizedBox(height: 50),
         ElevatedButton(
-            onPressed: () {},
+            onPressed: () =>
+                widget.controller.nextPage(duration: duration, curve: curve),
             child: const Text(
               "Empezar",
-              style: TextStyle(color: Colors.white),
             )),
       ]),
     );
@@ -117,15 +130,18 @@ Widget _stepper(context, step) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
-      Container(
-        width: step == 0 ? 40 : 25,
-        height: 10,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(5),
-          color: step == 0 ? color : Colors.grey[400],
-        ),
-      ),
-      Container(
+      // AnimatedContainer(
+      AnimatedContainer(
+          duration: const Duration(milliseconds: 500),
+          width: step == 0 ? 40 : 25,
+          height: 10,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(5),
+            color: step == 0 ? color : Colors.grey[400],
+            // ),
+          )),
+      AnimatedContainer(
+        duration: const Duration(milliseconds: 500),
         width: step == 1 ? 40 : 25,
         height: 10,
         decoration: BoxDecoration(
@@ -134,7 +150,8 @@ Widget _stepper(context, step) {
         ),
         margin: const EdgeInsets.symmetric(horizontal: 5),
       ),
-      Container(
+      AnimatedContainer(
+        duration: const Duration(milliseconds: 500),
         width: step == 2 ? 40 : 25,
         height: 10,
         decoration: BoxDecoration(
