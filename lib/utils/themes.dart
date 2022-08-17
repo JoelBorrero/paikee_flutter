@@ -7,10 +7,15 @@ ThemeData lightTheme = ThemeData(
   primaryColor: const Color(0xFF39A7FC),
   primaryColorDark: primaryColorDark,
   scaffoldBackgroundColor: const Color(0xFFEDF3FB),
+  cardColor: const Color(0xFFF4F7FC),
   textTheme: TextTheme(
-    bodyMedium: GoogleFonts.poppins(
+    bodySmall: GoogleFonts.poppins(
         fontSize: 12, fontWeight: FontWeight.w400, color: primaryColorDark),
+    bodyMedium: GoogleFonts.poppins(
+        fontSize: 14, fontWeight: FontWeight.w400, color: primaryColorDark),
     bodyLarge: GoogleFonts.poppins(color: primaryColorDark),
+    titleSmall: GoogleFonts.poppins(
+        fontSize: 15, fontWeight: FontWeight.w600, color: primaryColorDark),
     titleMedium: GoogleFonts.poppins(
         fontSize: 18, fontWeight: FontWeight.w700, color: primaryColorDark),
     titleLarge: GoogleFonts.poppins(
@@ -47,3 +52,12 @@ ThemeData lightTheme = ThemeData(
     ),
   ),
 );
+
+InputBorder? inputBorder({bool dark = false}) =>
+    lightTheme.inputDecorationTheme.border?.copyWith(
+      borderSide: BorderSide(
+          style: BorderStyle.solid,
+          color: dark
+              ? lightTheme.primaryColorDark
+              : lightTheme.scaffoldBackgroundColor),
+    );

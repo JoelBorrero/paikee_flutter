@@ -1,4 +1,4 @@
-package com.example.paikee
+package com.paikee.paikee
 
 import io.flutter.embedding.android.FlutterActivity
 
