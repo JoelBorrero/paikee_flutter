@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:paikee/backend/models/user.dart';
-import 'package:paikee/screens/home/messages.dart';
+import 'package:paikee/screens/home/messages/messages_list.dart';
 import 'package:paikee/screens/home/profile.dart';
 import 'package:paikee/screens/home/rooms.dart';
 import 'package:paikee/widgets/components/navigation_bar.dart';

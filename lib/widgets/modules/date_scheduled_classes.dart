@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:paikee/backend/models/scheduled_class.dart';
 import 'package:paikee/widgets/components/text_components.dart';
 import 'package:paikee/widgets/patterns/scheduled_class_card.dart';
@@ -33,12 +34,15 @@ List<Widget> childrenListView(List data, String title) {
   ];
   for (var obj in data) {
     ScheduledClass scheduledClass = ScheduledClass.fromJson(obj);
-    children.add(ScheduledClassCard(
+    children.add(
+      ScheduledClassCard(
         status: scheduledClass.status,
         hour: scheduledClass.hour,
         teacher: scheduledClass.teacher,
         index: scheduledClass.index,
-        color: Color(scheduledClass.color)));
+        color: Color(scheduledClass.color),
+      ),
+    );
   }
   return children;
 }
