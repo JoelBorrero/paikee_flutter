@@ -16,14 +16,16 @@ Widget socialLoginButtons({required ThemeData theme, bool dark = false}) =>
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             socialButton(() {}, Icons.g_mobiledata),
-            socialButton(() {}, Icons.face),
-            socialButton(() {}, Icons.apple),
+            socialButton(() {}, Icons.facebook, color: const Color(0xFF1977F3)),
+            socialButton(() {}, Icons.apple, color: const Color(0xFF2D3548)),
           ],
         ),
       ],
     );
 
-Widget socialButton(onPressed, icon) => Container(
+Widget socialButton(Function()? onPressed, IconData icon,
+        {Color color = Colors.black54}) =>
+    Container(
       width: 40,
       height: 40,
       margin: const EdgeInsets.all(7),
@@ -31,5 +33,6 @@ Widget socialButton(onPressed, icon) => Container(
         borderRadius: BorderRadius.circular(100),
         color: const Color(0xFFF4F7FC),
       ),
-      child: IconButton(onPressed: onPressed, icon: Icon(icon, size: 23)),
+      child: IconButton(
+          onPressed: onPressed, icon: Icon(icon, size: 23, color: color)),
     );

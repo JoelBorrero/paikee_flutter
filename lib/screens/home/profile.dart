@@ -31,7 +31,7 @@ class _ProfileState extends State<Profile> {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                 margin: const EdgeInsets.symmetric(vertical: 20),
-                theme: theme,
+                dark: true,
                 child: Column(
                   children: [
                     Row(
@@ -103,7 +103,10 @@ class _ProfileState extends State<Profile> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     textMedium("Cerrar sesión"),
-                    const Icon(Icons.logout)
+                    Icon(
+                      Icons.logout,
+                      color: theme.primaryColorDark,
+                    )
                   ],
                 ),
                 onTap: () => logout(),

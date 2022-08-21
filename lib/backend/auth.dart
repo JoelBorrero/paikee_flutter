@@ -48,4 +48,5 @@ Future<User> loginDemo(String email, String password) async {
 Future logout() async {
   final prefs = await SharedPreferences.getInstance();
   prefs.remove("user");
+  print("logged out succesfully");
 }

@@ -2,17 +2,11 @@ import 'package:flutter/material.dart';
 
 import 'package:paikee/backend/models/chat_list.dart';
 import 'package:paikee/backend/models/messages.dart';
+import 'package:paikee/screens/home/messages/bottom_text_bar.dart';
 import 'package:paikee/widgets/components/message_bubble.dart';
 import 'package:paikee/widgets/components/text_components.dart';
 
 const List messages = [
-  {
-    "date": "Monday 14",
-    "messages": [
-      {"sent": true, "date": "11:29 pm", "text": "I'll text u tomorrow"},
-      {"sent": false, "date": "11:53 pm", "text": "Cool! Let me know :smile:"},
-    ]
-  },
   {
     "date": "Tuesday 15",
     "messages": [
@@ -35,7 +29,28 @@ const List messages = [
       {"sent": true, "date": "3:58 pm", "text": "Thanks"},
     ]
   },
+  {
+    "date": "Monday 14",
+    "messages": [
+      {"sent": true, "date": "11:29 pm", "text": "I'll text u tomorrow"},
+      {"sent": false, "date": "11:53 pm", "text": "Cool! Let me know :smile:"},
+    ]
+  },
+  {
+    "date": "Sunday 13",
+    "messages": [
+      {"sent": true, "date": "11:29 am", "text": "I'm on a break"},
+      {"sent": false, "date": "4:53 pm", "text": "Cool!"},
+    ]
+  }
 ];
+
+TextEditingController _controller = TextEditingController();
+
+onSend(String value) {
+  print(value);
+  print(_controller.text);
+}
 
 class ChatView extends StatefulWidget {
   final Chat chat;
@@ -94,6 +109,9 @@ class _ChatViewState extends State<ChatView> {
           ],
         ),
       ),
+      bottomNavigationBar:
+          BottomTextBar(controller: _controller, onSend: onSend),
+      resizeToAvoidBottomInset: true,
     );
   }
 }
@@ -105,6 +123,7 @@ class MessagesListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Flexible(
       child: ListView.builder(
+        reverse: true,
         padding: const EdgeInsets.symmetric(horizontal: 12),
         itemCount: messages.length,
         itemBuilder: (_, i) => SingleDayMessages(

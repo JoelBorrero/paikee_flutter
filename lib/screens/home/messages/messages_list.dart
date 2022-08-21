@@ -21,14 +21,15 @@ class _MessagesState extends State<Messages> {
         textH1("Mensajes\n"),
         Flexible(
           child: FutureBuilder(
-              future: getChats(),
-              builder:
-                  (BuildContext _, AsyncSnapshot<ChatListResponse> snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return const Center(child: CircularProgressIndicator());
-                }
-                return _ChatList(chats: snapshot.data!.data);
-              }),
+            future: getChats(),
+            builder:
+                (BuildContext _, AsyncSnapshot<ChatListResponse> snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const Center(child: CircularProgressIndicator());
+              }
+              return _ChatList(chats: snapshot.data!.data);
+            },
+          ),
         ),
       ],
     );

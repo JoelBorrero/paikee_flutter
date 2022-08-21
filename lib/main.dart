@@ -59,7 +59,7 @@ class _WrapperState extends State<Wrapper> {
     bool authenticated = (_user?.id ?? -1) >= 0;
     return Scaffold(
       body: authenticated ? MainView(user: _user!) : const Authentication(),
-      resizeToAvoidBottomInset: false,
+      // resizeToAvoidBottomInset: false,
     );
   }
 }

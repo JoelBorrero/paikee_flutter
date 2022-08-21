@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 Widget roundedTopCard(
-        {required Color color, required Widget child, double marginTop = 50}) =>
+        {required Color color, double marginTop = 50, required Widget child}) =>
     Container(
         decoration: BoxDecoration(
-          borderRadius: const BorderRadius.vertical(top: Radius.circular(30)),
+          borderRadius: const BorderRadius.vertical(
+            top: Radius.circular(30),
+          ),
           color: color,
         ),
         margin: EdgeInsets.only(top: marginTop),

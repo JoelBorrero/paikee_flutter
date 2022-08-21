@@ -4,6 +4,8 @@ import 'package:paikee/backend/models/user.dart';
 import 'package:paikee/screens/home/messages/messages_list.dart';
 import 'package:paikee/screens/home/profile.dart';
 import 'package:paikee/screens/home/rooms.dart';
+import 'package:paikee/screens/home/scheduled/scheduled.dart';
+import 'package:paikee/screens/home/scheduled/scheduled_classes.dart';
 import 'package:paikee/widgets/components/navigation_bar.dart';
 
 PageController _mainController = PageController();
@@ -29,7 +31,7 @@ class _MainViewState extends State<MainView> {
               const Rooms(),
               const Messages(),
               const Center(child: Text("HOME")),
-              const Center(child: Text("BOOK")),
+              const Scheduled(),
               Profile(user: widget.user)
             ],
           ),
