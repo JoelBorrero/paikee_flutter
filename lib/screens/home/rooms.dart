@@ -15,7 +15,10 @@ const List data = [
         "hour": "10:00 - 13:30",
         "index": "2/6",
         "status": "PRÓXIMA",
-        "teacher": {"name": "Camilo Sinera", "picture": "https"}
+        "teacher": {
+          "name": "Camilo Sinera",
+          "avatar": "https://reqres.in/img/faces/1-image.jpg"
+        }
       },
       {
         "id": 1,
@@ -23,7 +26,10 @@ const List data = [
         "hour": "11:00 - 14:30",
         "index": "1/4",
         "status": "PRÓXIMA",
-        "teacher": {"name": "Sol Micenetti", "picture": "https"}
+        "teacher": {
+          "name": "Sol Micenetti",
+          "avatar": "https://reqres.in/img/faces/3-image.jpg"
+        }
       },
     ]
   },
@@ -36,7 +42,10 @@ const List data = [
         "hour": "15:00 - 16:00",
         "index": "3/4",
         "status": "PRÓXIMA",
-        "teacher": {"name": "Michael Costas", "picture": "https"}
+        "teacher": {
+          "name": "Michael Costas",
+          "avatar": "https://reqres.in/img/faces/5-image.jpg"
+        }
       },
       {
         "id": 1,
@@ -44,7 +53,10 @@ const List data = [
         "hour": "09:30 - 11:00",
         "index": "2/5",
         "status": "PRÓXIMA",
-        "teacher": {"name": "Camila Lozada", "picture": "https"}
+        "teacher": {
+          "name": "Camila Lozada",
+          "avatar": "https://reqres.in/img/faces/7-image.jpg"
+        }
       },
       {
         "id": 1,
@@ -52,7 +64,11 @@ const List data = [
         "hour": "16:30 - 18:00",
         "index": "2/3",
         "status": "PRÓXIMA",
-        "teacher": {"name": "Taya Smith", "picture": "https"}
+        "teacher": {
+          "name": "Taya Smith",
+          "avatar":
+              "https://akamai.sscdn.co/uploadfile/letras/fotos/3/2/8/0/32804b19d67f2ea05cf7098cd514248d.jpg"
+        }
       },
     ]
   },
@@ -65,7 +81,11 @@ const List data = [
         "hour": "16:30 - 18:00",
         "index": "3/3",
         "status": "PRÓXIMA",
-        "teacher": {"name": "Taya Smith", "picture": "https"}
+        "teacher": {
+          "name": "Taya Smith",
+          "avatar":
+              "https://akamai.sscdn.co/uploadfile/letras/fotos/3/2/8/0/32804b19d67f2ea05cf7098cd514248d.jpg"
+        }
       },
     ]
   },

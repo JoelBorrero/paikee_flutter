@@ -3,7 +3,9 @@ import 'package:paikee/utils/constants.dart';
 
 class CustomNavigationBar extends StatefulWidget {
   final PageController controller;
-  const CustomNavigationBar({Key? key, required this.controller})
+  final Function setAppBarDark;
+  const CustomNavigationBar(
+      {Key? key, required this.controller, required this.setAppBarDark})
       : super(key: key);
 
   @override
@@ -13,6 +15,16 @@ class CustomNavigationBar extends StatefulWidget {
 int _page = 0;
 
 class _CustomNavigationBarState extends State<CustomNavigationBar> {
+  void goToPage(int page) {
+    if (_page == 3) {
+      widget.setAppBarDark(false);
+    }
+    setState(() {
+      _page = page;
+      widget.controller.animateToPage(_page, duration: duration, curve: curve);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
@@ -25,26 +37,14 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               IconButton(
-                onPressed: () {
-                  setState(() {
-                    _page = 0;
-                    widget.controller
-                        .animateToPage(_page, duration: duration, curve: curve);
-                  });
-                },
+                onPressed: () => goToPage(0),
                 icon: const Icon(Icons.groups),
                 color: _page == 0
                     ? theme.primaryColor
                     : theme.scaffoldBackgroundColor,
               ),
               IconButton(
-                onPressed: () {
-                  setState(() {
-                    _page = 1;
-                    widget.controller
-                        .animateToPage(_page, duration: duration, curve: curve);
-                  });
-                },
+                onPressed: () => goToPage(1),
                 icon: const Icon(Icons.forum),
                 color: _page == 1
                     ? theme.primaryColor
@@ -53,13 +53,7 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
               Padding(
                 padding: const EdgeInsets.only(bottom: 30),
                 child: IconButton(
-                  onPressed: () {
-                    setState(() {
-                      _page = 2;
-                      widget.controller.animateToPage(_page,
-                          duration: duration, curve: curve);
-                    });
-                  },
+                  onPressed: () => goToPage(2),
                   icon: const Icon(Icons.home),
                   color: _page == 2
                       ? theme.primaryColor
@@ -67,26 +61,14 @@ class _CustomNavigationBarState extends State<CustomNavigationBar> {
                 ),
               ),
               IconButton(
-                onPressed: () {
-                  setState(() {
-                    _page = 3;
-                    widget.controller
-                        .animateToPage(_page, duration: duration, curve: curve);
-                  });
-                },
+                onPressed: () => goToPage(3),
                 icon: const Icon(Icons.menu_book),
                 color: _page == 3
                     ? theme.primaryColor
                     : theme.scaffoldBackgroundColor,
               ),
               IconButton(
-                onPressed: () {
-                  setState(() {
-                    _page = 4;
-                    widget.controller
-                        .animateToPage(_page, duration: duration, curve: curve);
-                  });
-                },
+                onPressed: () => goToPage(4),
                 icon: const Icon(Icons.person),
                 color: _page == 4
                     ? theme.primaryColor

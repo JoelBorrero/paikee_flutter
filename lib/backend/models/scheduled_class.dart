@@ -5,6 +5,7 @@ class ScheduledClass {
   final String index;
   final String status;
   final String teacher;
+  final String avatar;
 
   const ScheduledClass({
     required this.id,
@@ -13,6 +14,7 @@ class ScheduledClass {
     required this.teacher,
     required this.index,
     required this.color,
+    required this.avatar,
   });
 
   factory ScheduledClass.fromJson(Map<String, dynamic> json) {
@@ -20,9 +22,10 @@ class ScheduledClass {
       id: json['id'],
       status: json['status'],
       hour: json['hour'],
-      teacher: json['teacher']["name"],
+      teacher: json['teacher']['name'],
       index: json['index'],
       color: json['color'],
+      avatar: json['teacher']['avatar'],
     );
   }
 }

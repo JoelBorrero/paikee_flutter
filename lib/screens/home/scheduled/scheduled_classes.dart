@@ -4,6 +4,7 @@ import 'package:paikee/widgets/components/elevated_card.dart';
 import 'package:paikee/widgets/components/text_components.dart';
 import 'package:paikee/widgets/modules/date_scheduled_classes.dart';
 
+bool appBarIsDark = false;
 const List data = [
   {
     "date": "Hoy",
@@ -65,7 +66,8 @@ const List data = [
         "status": "EN ESPERA",
         "teacher": {
           "name": "Taya Smith",
-          "avatar": "https://reqres.in/img/faces/9-image.jpg"
+          "avatar":
+              "https://akamai.sscdn.co/uploadfile/letras/fotos/3/2/8/0/32804b19d67f2ea05cf7098cd514248d.jpg"
         }
       },
     ]
@@ -81,7 +83,8 @@ const List data = [
         "status": "EN DISPUTA",
         "teacher": {
           "name": "Taya Smith",
-          "avatar": "https://reqres.in/img/faces/11-image.jpg"
+          "avatar":
+              "https://akamai.sscdn.co/uploadfile/letras/fotos/3/2/8/0/32804b19d67f2ea05cf7098cd514248d.jpg"
         }
       },
     ]
@@ -89,20 +92,32 @@ const List data = [
 ];
 
 class ScheduledClasses extends StatefulWidget {
-  final Function toggle;
-  const ScheduledClasses({Key? key, required this.toggle}) : super(key: key);
+  final Function setAppBarDark, toggleClassesTaken;
+  const ScheduledClasses(
+      {Key? key, required this.setAppBarDark, required this.toggleClassesTaken})
+      : super(key: key);
 
   @override
   State<ScheduledClasses> createState() => _ScheduledClassesState();
 }
 
 class _ScheduledClassesState extends State<ScheduledClasses> {
+  void setAppBarDark(bool dark) {
+    widget.setAppBarDark(dark);
+    appBarIsDark = dark;
+  }
+
   @override
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     return Column(
       children: [
-        textH1("Clases agendadas"),
+        GestureDetector(
+          onTap: () {
+            setAppBarDark(!appBarIsDark);
+          },
+          child: textH1("Clases agendadas"),
+        ),
         const SizedBox(height: 20),
         Flexible(
           child: ListView.builder(
@@ -115,7 +130,7 @@ class _ScheduledClassesState extends State<ScheduledClasses> {
           margin: const EdgeInsets.all(20),
           paintBorder: true,
           onTap: (() {
-            widget.toggle(0.0);
+            widget.toggleClassesTaken(0.0);
           }),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

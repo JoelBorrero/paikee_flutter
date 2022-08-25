@@ -8,6 +8,8 @@ import 'package:paikee/screens/authentication/authentication.dart';
 import 'package:paikee/screens/home/main_view.dart';
 import 'package:paikee/utils/themes.dart';
 
+bool appBarIsDark = false;
+
 void main() {
   runApp(const MyApp());
 }
@@ -57,8 +59,25 @@ class _WrapperState extends State<Wrapper> {
   @override
   Widget build(BuildContext context) {
     bool authenticated = (_user?.id ?? -1) >= 0;
+    void setAppBarDark(bool dark) {
+      if (dark != appBarIsDark) {
+        setState(() {
+          appBarIsDark = dark;
+        });
+      }
+    }
+
     return Scaffold(
-      body: authenticated ? MainView(user: _user!) : const Authentication(),
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: appBarIsDark
+            ? lightTheme.primaryColorDark
+            : lightTheme.scaffoldBackgroundColor,
+        toolbarHeight: 0,
+      ),
+      body: authenticated
+          ? MainView(user: _user!, setAppBarDark: setAppBarDark)
+          : const Authentication(),
       // resizeToAvoidBottomInset: false,
     );
   }
