@@ -34,7 +34,8 @@ class _MainViewState extends State<MainView> {
       body: SafeArea(
         top: !appBarIsDark,
         child: Padding(
-          padding: EdgeInsets.only(top: appBarIsDark ? 0 : 20),
+          // padding: EdgeInsets.only(top: appBarIsDark ? 0 : 20),
+          padding: EdgeInsets.only(top: appBarIsDark ? 0 : 0),
           child: PageView(
             controller: _mainController,
             physics: const NeverScrollableScrollPhysics(),
