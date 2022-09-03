@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 
 import 'package:paikee/backend/models/user.dart';
-import 'package:paikee/screens/home/messages/messages_list.dart';
-import 'package:paikee/screens/home/profile.dart';
-import 'package:paikee/screens/home/rooms.dart';
-import 'package:paikee/screens/home/scheduled/scheduled.dart';
 import 'package:paikee/widgets/components/navigation_bar.dart';
 
-PageController _mainController = PageController();
+import 'home_view/home.dart';
+import 'messages/messages_list.dart';
+import 'profile.dart';
+import 'rooms.dart';
+import 'scheduled/scheduled.dart';
+
+PageController _mainController = PageController(initialPage: 2);
 bool appBarIsDark = false;
 
 class MainView extends StatefulWidget {
@@ -39,7 +41,7 @@ class _MainViewState extends State<MainView> {
             children: [
               const Rooms(),
               const Messages(),
-              const Center(child: Text("HOME")),
+              Home(user: widget.user),
               Scheduled(setAppBarDark: setAppBarDark),
               Profile(user: widget.user)
             ],

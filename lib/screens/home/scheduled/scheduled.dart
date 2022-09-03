@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:paikee/screens/home/scheduled/classes_taken.dart';
+import 'package:paikee/screens/home/scheduled/mothly_calendar.dart';
 import 'package:paikee/screens/home/scheduled/scheduled_classes.dart';
 import 'package:paikee/utils/constants.dart';
 import 'package:paikee/widgets/components/rounded_top_card.dart';
@@ -56,6 +57,7 @@ class _ScheduledState extends State<Scheduled> {
             curve: curve,
             height: appBarIsDark ? 350 : 0,
             color: theme.primaryColorDark,
+            child: const MothlyCalendar(),
           ),
           AnimatedPositioned(
             duration: duration,

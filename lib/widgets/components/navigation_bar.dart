@@ -12,7 +12,7 @@ class CustomNavigationBar extends StatefulWidget {
   State<CustomNavigationBar> createState() => _CustomNavigationBarState();
 }
 
-int _page = 0;
+int _page = 2;
 
 class _CustomNavigationBarState extends State<CustomNavigationBar> {
   void goToPage(int page) {
